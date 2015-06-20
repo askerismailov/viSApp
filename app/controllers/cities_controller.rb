@@ -9,19 +9,19 @@ class CitiesController < ApplicationController
   end
 
   def new
-    @subject = Subject.new
-    @subject_count = Subject.count + 1
-    @newSubject = Subject.count + 1
+    @city = City.new
+    # @subject_count = Subject.count + 1
+    # @newSubject = Subject.count + 1
   end
 
   def create
-    @subject = Subject.new(subject_params)
-    if @subject.save
-      flash[:notice] = "Subject created successfully!"
+    @city = City.new(city_params)
+    if @city.save
+      # flash[:notice] = "Subject created successfully!"
       redirect_to(:action => 'index')
     else
-      @subject_count = Subject.count + 1
-      @newSubject = Subject.count + 1
+      # @subject_count = Subject.count + 1
+      # @newSubject = Subject.count + 1
       render('new')
     end
   end
@@ -55,8 +55,8 @@ class CitiesController < ApplicationController
 
   private
 
-  def subject_params
-     params.require(:subject).permit(:name, :position, :visible)
+  def city_params
+     params.require(:city).permit(:city_name)
   end
 
 end
