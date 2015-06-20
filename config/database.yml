@@ -19,3 +19,10 @@ development:
 test:
   <<: *default
   database: db/test.sqlite3
+
+production:
+  host: ec2-54-227-247-161.compute-1.amazonaws.com
+  database: djr2j2fk4dpfc
+  port: 5432
+  user: zjpbzbscjnwnvb
+  password: t3KAcBDF2gUJ9ACe9aChXs7Ue6
