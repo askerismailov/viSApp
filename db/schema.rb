@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150620112634) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "banks", force: :cascade do |t|
     t.integer  "city_id"
     t.integer  "post_index_id"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 20150620112634) do
     t.datetime "updated_at",    null: false
   end
 
-  add_index "banks", ["city_id", "post_index_id"], name: "index_banks_on_city_id_and_post_index_id"
+  add_index "banks", ["city_id", "post_index_id"], name: "index_banks_on_city_id_and_post_index_id", using: :btree
 
   create_table "cities", force: :cascade do |t|
     t.string   "city_name"
@@ -43,6 +46,6 @@ ActiveRecord::Schema.define(version: 20150620112634) do
     t.datetime "updated_at", null: false
   end
 
-  add_index "post_indices", ["city_id"], name: "index_post_indices_on_city_id"
+  add_index "post_indices", ["city_id"], name: "index_post_indices_on_city_id", using: :btree
 
 end
