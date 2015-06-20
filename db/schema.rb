@@ -11,11 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150619185932) do
+ActiveRecord::Schema.define(version: 20150620112634) do
+
+  create_table "banks", force: :cascade do |t|
+    t.integer  "city_id"
+    t.integer  "post_index_id"
+    t.string   "mfo_no"
+    t.string   "bank_name"
+    t.string   "cor_account"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "banks", ["city_id", "post_index_id"], name: "index_banks_on_city_id_and_post_index_id"
+
+  create_table "cities", force: :cascade do |t|
+    t.string   "city_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "contragents", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "post_indices", force: :cascade do |t|
+    t.integer  "city_id"
+    t.integer  "post_index"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "post_indices", ["city_id"], name: "index_post_indices_on_city_id"
 
 end

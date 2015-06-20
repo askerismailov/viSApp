@@ -22,6 +22,8 @@
  *= require layout
  *= require grey
  *= require custom
+ *= require components-md
+ *= require plugins-md
 
 
 

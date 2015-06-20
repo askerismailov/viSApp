@@ -11,7 +11,10 @@
   <link rel="shortcut icon" href="../../assets/favicon.ico"/>
   <%= csrf_meta_tags %>
 </head>
-<body class="page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed-mobile page-footer-fixed1">
+
+<title><%= yield(:title) %></title>
+
+<body class="page-md page-header-fixed page-container-bg-solid page-sidebar-closed-hide-logo page-header-fixed-mobile page-footer-fixed1">
 
 <%= render 'layouts/header' %>
 
@@ -69,14 +72,16 @@
 						</a>
               <ul class="sub-menu">
                 <li>
-                  <a href="#">
-                  <i class="fa fa-bank"></i>
-                  Банки</a>
+                  <%= link_to banks_path do %>
+                  <%= content_tag :i, "", :class => "fa fa-bank" %>
+                  Банки  <% end %>
                 </li>
                 <li>
-                  <a href="#">
-                  <i class="fa fa-building"></i>Города
-                  </a>
+                  <li>
+                    <%= link_to cities_path do %>
+                    <%= content_tag :i, "", :class => "fa fa-building" %>
+                    Города <% end %>
+                  </li>
                 </li>
                 <li>
                   <a href="#">
