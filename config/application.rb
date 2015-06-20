@@ -23,6 +23,7 @@ module Myapp2
     config.assets.enabled = true
     config.assets.paths << "#{Rails.root}/vendor/assets/plugins/"
     config.assets.paths << "#{Rails.root}/vendor/assets/img/"
+    config.assets.paths << "#{Rails.root}/vendor/assets/fonts"
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
