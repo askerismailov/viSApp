@@ -57,8 +57,14 @@
 				</button>
 				<ul class="dropdown-menu" role="menu">
 					<li>
-						<a href="javascript:;">
-						<i class="fa fa-building"></i> Новый Город</a>
+
+
+						<li>
+
+							<%= link_to '/cities/new' do  %>
+	        		<%= content_tag :i, "", :class => "fa fa-building" %> Новый Город
+	      			<% end %>
+
 					</li>
 					<li>
 						<a href="javascript:;">
@@ -154,6 +160,8 @@
 		<!-- END PAGE TOP -->
 	</div>
 	<!-- END HEADER INNER -->
+
+
 </div>
 <!-- END HEADER -->
 <div class="clearfix">

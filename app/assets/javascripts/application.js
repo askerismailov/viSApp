@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= turbolinks
 //= require_tree .
 //= require jquery.min
 //= require jquery-migrate.min
@@ -24,6 +24,8 @@
 //= require jquery.cokie.min
 //= require uniform/jquery.uniform.min
 //= require bootstrap-switch/js/bootstrap-switch.min
+//= require datatables/media/js/jquery.dataTables.min
+//= require datatables/plugins/bootstrap/dataTables.bootstrap
 //= require metronic
 //= require layout
 //= require demo

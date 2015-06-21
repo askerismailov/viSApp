@@ -175,7 +175,7 @@ Page Header
   display: none;
   float: right;
   margin: 24px 14px 0 6px;
-  background-image: url(../img/sidebar-toggler-inverse.png);
+  background-image: url(../../assets/sidebar-toggler-inverse.png);
 }
 .page-header.navbar .page-actions {
   margin: 17px 0 15px 15px;
@@ -720,7 +720,7 @@ Page Header
     padding: 24px 6px 24px 6px;
   }
   .page-header.navbar .menu-toggler.responsive-toggler {
-    background-image: url(../img/sidebar-toggler.png);
+    background-image: url(../../assets/sidebar-toggler.png);
   }
   .page-header.navbar .search-form {
     margin-left: -12px;

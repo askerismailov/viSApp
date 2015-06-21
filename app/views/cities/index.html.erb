@@ -1,4 +1,3 @@
-<% provide(:title, "Список Городов") %>
 <!-- BEGIN CONTENT -->
 		<div class="page-content-wrapper">
 			<div class="page-content">
@@ -27,151 +26,109 @@
 
 				<!-- BEGIN PAGE HEADER-->
 				<h3 class="page-title">
-					Список Городов  <small>Все города зарегистрированные в базе данных </small>
+				Blank Page <small>blank page</small>
 				</h3>
 				<div class="page-bar">
 					<ul class="page-breadcrumb">
 						<li>
-							<i class="fa fa-home"></i>
-							<a href="/">Панель Управления</a>
+
+							<%= link_to root_path do  %>
+	        		<%= content_tag :i, "", :class => "fa fa-home" %>Home
+							<%= content_tag :i, "", :class => "fa fa-angle-right" %>
+	      			<% end %>
+						</li>
+
+
+						<li>
+							<a href="#">Page Layouts</a>
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">Справочники</a>
-							<i class="fa fa-angle-right"></i>
-						</li>
-						<li>
-							<a href="#">Список Городов</a>
+							<a href="#">Blank Page</a>
 						</li>
 					</ul>
-
 				</div>
 				<!-- END PAGE HEADER-->
-
 				<!-- BEGIN PAGE CONTENT-->
 				<div class="row">
+					<div class="col-md-12">
 
 
-						<div class="col-md-12">
-					<!-- BEGIN SAMPLE TABLE PORTLET-->
-					<div class="portlet light">
-						<div class="portlet-title">
-							<div class="caption">
-								<i class="fa fa-building"></i> Список Городов
+
+						<!-- BEGIN SAMPLE TABLE PORTLET-->
+						<div class="portlet light">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-building"></i>Advance Table
+								</div>
+								<div class="tools">
+									<a href="javascript:;" class="collapse" data-original-title="" title="">
+									</a>
+									<a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="">
+									</a>
+									<a href="javascript:;" class="reload" data-original-title="" title="ss">
+									</a>
+									<a href="javascript:;" class="remove" data-original-title="" title="aa">
+									</a>
+								</div>
 							</div>
-							<!-- <div class="tools">
-								<a href="javascript:;" class="collapse" data-original-title="" title="">
-								</a>
-								<a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="">
-								</a>
-								<a href="javascript:;" class="reload" data-original-title="" title="">
-								</a>
-								<a href="javascript:;" class="remove" data-original-title="" title="">
-								</a>
-							</div> -->
-						</div>
-						<div class="portlet-body">
-							<div class="table-scrollable">
-								<table class="table table-striped table-bordered table-advance table-hover">
-								<thead>
-								<tr>
-									<th style="width: 155px; ">
-										<i class="fa fa-database"></i> Позиция
-									</th>
-									<th>
-										<i class="fa fa-building-o"></i> Наименование
-									</th>
-									<th style="width: 155px; ">
-									</th>
-									<th style="width: 155px; ">
-									</th>
-								</tr>
-								</thead>
-								<tbody>
+							<div class="portlet-body" style="display: block;">
+								<div class="table-scrollable">
+									<table class="table table-striped table-bordered table-advance table-hover">
+									<thead>
+									<tr>
+										<th style="width: 100px; font-size: 15px;">
+											<i class="fa fa-database"></i> City ID
+										</th>
+										<th style="font-size: 15px;">
+											<i class="fa fa-building"></i> City
+										</th>
+										<th style="width: 55px;">
+										</th>
+										<th style="width: 55px;">
+										</th>
+									</tr>
+									</thead>
 									<% @cities.each do |city| %>
-								<tr>
-									<td class="highlight">
-										<div class="info">
-										</div>
-										<a class="disabled"> <%= city.id %> </a>
-									</td>
-									<td>
-										<%= city.city_name %>
-									</td>
-									<td style= "text-align: center;" >
-										<a href="javascript:;" class="btn default btn-xs purple">
-										<i class="fa fa-edit"></i> Изменить </a>
-									</td>
-										<td style= "text-align: center;" >
-											<a href="javascript:;" class="btn default btn-xs black">
-											<i class="fa fa-trash-o"></i> Удалить </a>
+									<tbody>
+									<tr>
+										<td class="highlight" style="vertical-align: middle; font-size: 14px; ">
+											<div class="success">
+											</div>
+											<a href="javascript:;">
+											<%= city.id %> </a>
 										</td>
-									</td>
-								</tr>
-								<!-- <tr>
+										<td style="vertical-align: middle; font-size: 14px; ">
+											<%= city.city_name %>
+										</td>
+										<td>
+											<a href="javascript:;" class="btn btn-icon-only blue">
+												<i class="fa fa-edit"></i>
+											</a>
+										</td>
+										<td>
+											<a href="javascript:;" class="btn btn-icon-only red">
+																<i class="fa fa-remove"></i>
+																</a>
 
-									<td class="hidden-xs">
-										Adam Larson
-									</td>
-									<td>
-										560.60$
-									</td>
-									<td>
-										<a href="javascript:;" class="btn default btn-xs black">
-										<i class="fa fa-trash-o"></i> Delete </a>
-									</td>
-								</tr>
-								<tr>
-									<td class="highlight">
-										<div class="success">
-										</div>
-										<a href="javascript:;">
-										Apple </a>
-									</td>
-									<td class="hidden-xs">
-										Daniel Kim
-									</td>
-									<td>
-										3460.60$
-									</td>
-									<td>
-										<a href="javascript:;" class="btn default btn-xs purple">
-										<i class="fa fa-edit"></i> Edit </a>
-									</td>
-								</tr>
-								<tr>
-									<td class="highlight">
-										<div class="warning">
-										</div>
-										<a href="javascript:;">
-										Microsoft </a>
-									</td>
-									<td class="hidden-xs">
-										Nick
-									</td>
-									<td>
-										2560.60$
-									</td>
-									<td>
-										<a href="javascript:;" class="btn default btn-xs blue">
-										<i class="fa fa-share"></i> Share </a>
-									</td>
-								</tr> -->
-								</tbody>
-								<% end %>
-								</table>
+
+										</td>
+									</tr>
+
+									</tbody>
+									<% end %>
+									</table>
+								</div>
+								<div class="apple_pagination">
+									<%= will_paginate @cities, :previous_label => 'Nazad', :next_label => 'Vpered' %>
+								</div>
 							</div>
-
-					</div>
-					<!-- END SAMPLE TABLE PORTLET-->
-				</div>
+						</div>
+						<!-- END SAMPLE TABLE PORTLET-->
 
 
 
 
-
-
-					</div>
 					</div>
 				</div>
 				<!-- END PAGE CONTENT-->

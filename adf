@@ -1,0 +1,44 @@
+<div class="box-body table-responsive no-padding">
+                      <table class="table table-hover">
+                        <tbody>
+                          <tr>
+                          <th style="width: 30px">#</th>
+                          <th style="text-align: center; width: 80px">Subject</th>
+                          <th style="text-align: center; width: 30px">Visibility</th>
+                          <th style="text-align: center; width: 50px">Pages</th>
+                          <th style="text-align: center; width: 50px">Actions</th>
+                          <!-- <th style="width: 40px">Label</th> -->
+                        </tr>
+                        <% @subjects.each do |subject| %>
+                        <tr>
+                          <td style="text-align: center"><%=  subject.position %></td>
+                          <td><%= link_to(subject.name, {:action => 'show', :id => subject.id}) %></td>
+
+                          <% if subject.visible %>
+                            <td style="text-align: center; width: 50px"><i class = "glyphicon glyphicon-eye-open"></i></td>
+                          <% else %>
+                            <td style="text-align: center; width: 50px"><i class = "glyphicon glyphicon-eye-close"></i></td>
+                          <% end %>
+
+                          <% if subject.pages.size > 0 %>
+                            <td style="text-align: center; width: 50px"><span class="badge bg-green"><%= subject.pages.size %></span></td>
+                            <% else %>
+                            <td style="text-align: center"><span class="badge bg-red"><%= subject.pages.size %></span></td>
+                          <% end %>
+
+                          <td style="text-align: center">
+                            <span data-toggle="tooltip" data-original-title="More on the subject">
+                              <%= link_to("",  {:action => 'show', :id => subject.id},
+                                                :class => "glyphicon glyphicon-info-sign") %></span>
+                            <span data-toggle="tooltip" data-original-title="Edit the subject">
+                            <%= link_to("", {:action => 'edit', :id => subject.id},
+                                             :class => "glyphicon glyphicon-edit") %></span>
+                            <span data-toggle="tooltip" data-original-title="Delete the subject">
+                            <%= link_to("", {:action => 'delete', :id => subject.id},
+                                             :class => "glyphicon glyphicon-remove") %></span>
+                          </td>
+                        </tr>
+                      </tbody><% end %>
+                      </table>
+
+                    </div><!-- /.box-body -->

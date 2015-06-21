@@ -1,4 +1,3 @@
-<% provide(:title, "Список Городов") %>
 <!-- BEGIN CONTENT -->
 		<div class="page-content-wrapper">
 			<div class="page-content">
@@ -27,47 +26,60 @@
 
 				<!-- BEGIN PAGE HEADER-->
 				<h3 class="page-title">
-					Список Городов  <small>Все города зарегистрированные в базе данных </small>
+				Blank Page <small>blank page</small>
 				</h3>
 				<div class="page-bar">
 					<ul class="page-breadcrumb">
 						<li>
-							<i class="fa fa-home"></i>
-							<a href="/">Панель Управления</a>
+
+							<%= link_to root_path do  %>
+	        		<%= content_tag :i, "", :class => "fa fa-home" %>Home
+							<%= content_tag :i, "", :class => "fa fa-angle-right" %>
+	      			<% end %>
+						</li>
+
+
+						<li>
+							<a href="#">Page Layouts</a>
 							<i class="fa fa-angle-right"></i>
 						</li>
 						<li>
-							<a href="#">Справочники</a>
-							<i class="fa fa-angle-right"></i>
-						</li>
-						<li>
-							<a href="#">Список Городов</a>
+							<a href="#">Blank Page</a>
 						</li>
 					</ul>
-
 				</div>
 				<!-- END PAGE HEADER-->
-
 				<!-- BEGIN PAGE CONTENT-->
 				<div class="row">
-
-<%= form_for(:city, :url => {:action => 'create'}, :html => {:multipart => true}) do |f| %>
-<div class="box-body">
-  <div class="form-group">
-    <%= f.label :city_name %>
-    <%= f.text_field :city_name, class: 'form-control', placeholder: 'Enter a subject name' %>
-  </div>
-
-<div class="box-footer">
-  <%= f.submit "Create Subject", class: "btn btn-primary" %>
-</div>
-
-<% end %>
+					<div class="col-md-12">
 
 
+						<div class="portlet light">
+													<div class="portlet-title">
+														<div class="caption font-red-sunglo">
+															<span class="caption-subject bold uppercase"> Input Groups &amp; Icons</span>
+														</div>
+													</div>
+													<%= form_for(:city, :url => {:action => 'create'}, :html => {:multipart => true}) do |f| %>
+															<div class="form-body">
+																<div class="form-group form-md-line-input has-info">
+																	<div class="input-group input-group-lg">
+																		<div class="input-group-control">
+																			<%= f.text_field :city_name, class: 'form-control input-default', placeholder: 'Enter a subject name' %>
+																			<label for="form_control_1">Large Input Group</label>
+																		</div>
+																		<span class="input-group-btn btn-right">
+																			<%= f.submit "Create Subject", class: "btn btn-primary" %>
+																		</span>
+																	</div>
+																</div>
+																<% end %>
+															</div>
+												</div>
+
+					</div>
 				</div>
-
-			<!-- END PAGE CONTENT-->
+				<!-- END PAGE CONTENT-->
 			</div>
 		</div>
 		<!-- END CONTENT -->
