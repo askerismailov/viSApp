@@ -26,7 +26,7 @@
 
 				<!-- BEGIN PAGE HEADER-->
 				<h3 class="page-title">
-					Новый Город
+					Изменить Город
 				</h3>
 				<div class="page-bar">
 					<ul class="page-breadcrumb">
@@ -44,7 +44,7 @@
 							<% end %>
 						</li>
 						<li>
-							<a href="#">Новый Город</a>
+							<a href="#">Изменить Город</a>
 						</li>
 					</ul>
 				</div>
@@ -58,13 +58,13 @@
 													<div class="portlet-title">
 														<div class="caption font-red-sunglo">
 															<span class="caption-subject bold uppercase"> Управление Данными</span>
-												
+
 														</div>
 													</div>
-													<%= form_for(:city, :url => {:action => 'create'}, :html => {:multipart => true}) do |f| %>
+													<%= form_for(:city, :url => {:action => 'update', :id => @city.id }, role: "form") do |f| %>
 															<div class="form-body">
 														<div class="form-group form-md-line-input has-success">
-																<%= f.text_field :city_reg_no, class: 'form-control', id: 'form-control_1',  placeholder: 'Введите регистрационный номер', value: @last %>
+																<%= f.text_field :city_reg_no, class: 'form-control', id: 'form-control_1',  placeholder: 'Введите регистрационный номер', readonly: "" %>
 																<%= f.label :city_reg_no, "Регистрационный Номер в Базе Данных ", for: 'form-control_1' %>
 																<div class="form-control-focus">
 																</div>
@@ -75,7 +75,7 @@
 																<div class="form-control-focus">
 																</div>
 															</div>
-															<%= f.submit "Сохранить Запись", class: "btn btn-primary btn-right" %>
+															<%= f.submit "Обновить Запись", class: "btn btn-primary btn-right" %>
 														</form>
 
 														<% end %>

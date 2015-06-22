@@ -57,15 +57,21 @@
 				</button>
 				<ul class="dropdown-menu" role="menu">
 					<li>
-
-
 						<li>
-
 							<%= link_to '/cities/new' do  %>
 	        		<%= content_tag :i, "", :class => "fa fa-building" %> Новый Город
 	      			<% end %>
+					 </li>
 
+
+					<li>
+						<%= link_to '/post_indices/new' do  %>
+						<%= content_tag :i, "", :class => "fa fa-list" %> Новый Почтовый Код
+						<% end %>
 					</li>
+
+
+
 					<li>
 						<a href="javascript:;">
 						<i class="icon-tag"></i> New Comment </a>

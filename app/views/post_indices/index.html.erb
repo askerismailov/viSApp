@@ -90,17 +90,17 @@
 										</th>
 									</tr>
 									</thead>
-									<% @cities.each do |city| %>
+									<% @indices.each do |index| %>
 									<tbody>
 									<tr>
 										<td class="highlight" style="vertical-align: middle; font-size: 14px; ">
 											<div class="success">
 											</div>
 											<a href="javascript:;">
-											<%= city.city_reg_no %> </a>
+											<%= index.city.city_name %> </a>
 										</td>
 										<td style="vertical-align: middle; font-size: 14px; ">
-											<%= city.city_name %>
+											<%= index.post_index %>
 										</td>
 										<!-- <td>
 											<a href="javascript:;" class="btn btn-icon-only blue">
@@ -109,14 +109,14 @@
 										</td> -->
 
 <td>
-										<%= link_to("", {:action => 'edit', :id => city.id },
+										<%= link_to("", {:action => 'edit', :id => index.id },
 																		 :class => "btn btn-icon-only blue fa fa-edit") %>
 
 </td>
 
 
 <td>
-										<%= link_to("", {:action => 'delete', :id => city.id },
+										<%= link_to("", {:action => 'delete', :id => index.id },
 																		 :class => "btn btn-icon-only red fa fa-remove") %>
 
 </td>
@@ -127,7 +127,7 @@
 									</table>
 								</div>
 								<div class="apple_pagination">
-									<%= will_paginate @cities, :previous_label => 'Назад', :next_label => 'Вперед' %>
+									<%= will_paginate @indices, :previous_label => 'Назад', :next_label => 'Вперед' %>
 								</div>
 							</div>
 						</div>
