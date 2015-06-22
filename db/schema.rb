@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621104822) do
+ActiveRecord::Schema.define(version: 20150622064333) do
 
   create_table "banks", force: :cascade do |t|
     t.integer  "city_id"
@@ -19,16 +19,17 @@ ActiveRecord::Schema.define(version: 20150621104822) do
     t.string   "mfo_no"
     t.string   "bank_name"
     t.string   "cor_account"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.integer  "bank_reg_no",   limit: 8
   end
 
   add_index "banks", ["city_id", "post_index_id"], name: "index_banks_on_city_id_and_post_index_id"
 
   create_table "cities", force: :cascade do |t|
     t.string   "city_name"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "city_reg_no", limit: 8
   end
 
@@ -40,8 +41,9 @@ ActiveRecord::Schema.define(version: 20150621104822) do
   create_table "post_indices", force: :cascade do |t|
     t.integer  "city_id"
     t.integer  "post_index"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "index_reg_no", limit: 8
   end
 
   add_index "post_indices", ["city_id"], name: "index_post_indices_on_city_id"

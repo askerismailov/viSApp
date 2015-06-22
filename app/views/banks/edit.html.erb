@@ -61,16 +61,53 @@
 
 														</div>
 													</div>
-													<%= form_for(:city, :url => {:action => 'create'}, :html => {:multipart => true}) do |f| %>
+													<%= form_for(:bank, :url => {:action => 'update', :id => @bank.id }, :html => {:multipart => true}) do |f| %>
 															<div class="form-body">
+
+
 														<div class="form-group form-md-line-input has-success">
-																<%= f.label :city_reg_no, "Регистрационный Номер в Базе Данных", class: 'text-success' %>
-																<%= f.text_field :city_reg_no, class: 'form-control', placeholder: 'Введите регистрационный номер', value: @last, readonly: "" %>
-														</div>
-														<div class="form-group form-md-line-input has-success">
-																<%= f.label :city_name, "Наименование Города", class: 'text-success' %>
-																<%= f.text_field :city_name, class: 'form-control', placeholder: 'Введите наименование города', :maxlength=>35 %>
+																<%= f.text_field :bank_reg_no, class: 'form-control', id: 'form-control_1',  placeholder: 'Введите регистрационный номер', readonly: "" %>
+																<%= f.label :bank_reg_no, "Регистрационный Номер в Базе Данных ", for: 'form-control_1' %>
+																<div class="form-control-focus">
+																</div>
 															</div>
+
+
+															<div class="form-group form-md-line-input has-success">
+																<%= f.text_field :bank_name, class: 'form-control', id: 'form-control_1', placeholder: 'Введите наименование города', :maxlength=>35 %>
+																<%= f.label :bank_name, "Наименование Banka", for: 'form-control_1' %>
+																<div class="form-control-focus">
+																</div>
+															</div>
+
+															<div class="form-group form-md-line-input has-success">
+																<%= f.text_field :mfo_no, class: 'form-control', id: 'form-control_1', placeholder: 'Введите наименование города', :maxlength=>35 %>
+																<%= f.label :mfo_no, "MFO", for: 'form-control_1' %>
+																<div class="form-control-focus">
+																</div>
+															</div>
+
+															<div class="form-group form-md-line-input has-success">
+																<%= f.text_field :cor_account, class: 'form-control', id: 'form-control_1', placeholder: 'Введите наименование города', :maxlength=>35 %>
+																<%= f.label :cor_account, "COR", for: 'form-control_1' %>
+																<div class="form-control-focus">
+																</div>
+															</div>
+
+															<div class="form-group form-md-line-input has-success">
+																<%= f.select :post_index_id, @indices.map {|s| [s.post_index, s.id]}, {}, { class: 'form-control', id: 'form-control_1' } %>
+																<%= f.label :post_index_id, "COR", for: 'form-control_1' %>
+																<div class="form-control-focus">
+																</div>
+															</div>
+
+
+
+
+
+
+
+
 															<%= f.submit "Сохранить Запись", class: "btn btn-primary btn-right" %>
 														</form>
 

@@ -54,8 +54,6 @@
 					<div class="col-md-12">
 
 
-
-						<div data-target="#context-menu" data-toggle="context" id="context2">
 						<!-- BEGIN SAMPLE TABLE PORTLET-->
 						<div class="portlet light">
 							<div class="portlet-title">
@@ -81,56 +79,57 @@
 										<th style="width: 250px; font-size: 15px;">
 											<i class="fa fa-database"></i> Регистрационный Номер
 										</th>
-
-										<th style="font-size: 15px;  width: 250px;">
-											<i class="fa fa-list"></i> Index
-										</th>
-
 										<th style="font-size: 15px;">
-											<i class="fa fa-building"></i> Gorod
+											<i class="fa fa-building"></i> Наименование
 										</th>
-
+										<th style="font-size: 15px;">
+											<i class="fa fa-building"></i> MFO
+										</th>
+										<th style="font-size: 15px;">
+											<i class="fa fa-building"></i> COR
+										</th>
+										<th style="font-size: 15px;">
+											<i class="fa fa-building"></i> City
+										</th>
 										<th style="width: 55px;">
 										</th>
 										<th style="width: 55px;">
 										</th>
 									</tr>
 									</thead>
-									<% @indices.each do |index| %>
+									<% @banks.each do |bank| %>
 									<tbody>
 									<tr>
 										<td class="highlight" style="vertical-align: middle; font-size: 14px; ">
 											<div class="success">
 											</div>
 											<a href="javascript:;">
-											<%= index.index_reg_no %> </a>
+											<%= bank.bank_reg_no %> </a>
 										</td>
-
 										<td style="vertical-align: middle; font-size: 14px; ">
-											<%= index.post_index %>
+											<%= bank.bank_name %>
 										</td>
-
 										<td style="vertical-align: middle; font-size: 14px; ">
-											<%= index.city.city_name if index.city %>
+											<%= bank.mfo_no %>
+										</td>
+										<td style="vertical-align: middle; font-size: 14px; ">
+											<%= bank.cor_account %>
+										</td>
+										<td style="vertical-align: middle; font-size: 14px; ">
+											<%= bank.post_index.city.city_name if bank.post_index.city %>
 										</td>
 										<!-- <td>
 											<a href="javascript:;" class="btn btn-icon-only blue">
 												<i class="fa fa-edit"></i>
 											</a>
 										</td> -->
-
-<td>
-										<%= link_to("", {:action => 'edit', :id => index.id },
-																		 :class => "btn btn-icon-only blue fa fa-edit") %>
-
-</td>
-
-
-<td>
-										<%= link_to("", {:action => 'delete', :id => index.id },
+										<td>
+											<%= link_to("", {:action => 'edit', :id => bank.id }, :class => "btn btn-icon-only blue fa fa-edit") %>
+										</td>
+										<td>
+											<%= link_to("", {:action => 'delete', :id => bank.id },
 																		 :class => "btn btn-icon-only red fa fa-remove") %>
-
-</td>
+										</td>
 
 									</tr>
 									</tbody>
@@ -138,7 +137,7 @@
 									</table>
 								</div>
 								<div class="apple_pagination">
-									<%= will_paginate @indices, :previous_label => 'Назад', :next_label => 'Вперед' %>
+									<%= will_paginate @banks, :previous_label => 'Назад', :next_label => 'Вперед' %>
 								</div>
 							</div>
 						</div>
@@ -154,4 +153,4 @@
 			</div>
 		</div>
 		<!-- END CONTENT -->
-  </div>
+	</div>

@@ -26,7 +26,7 @@
 
 				<!-- BEGIN PAGE HEADER-->
 				<h3 class="page-title">
-					Новый Город
+					Удалить Город
 				</h3>
 				<div class="page-bar">
 					<ul class="page-breadcrumb">
@@ -44,7 +44,7 @@
 							<% end %>
 						</li>
 						<li>
-							<a href="#">Новый Город</a>
+							<a href="#">Удалить Город</a>
 						</li>
 					</ul>
 				</div>
@@ -53,30 +53,29 @@
 				<div class="row">
 					<div class="col-md-12">
 
+						<section class="content">
 
-						<div class="portlet light">
-													<div class="portlet-title">
-														<div class="caption font-red-sunglo">
-															<span class="caption-subject bold uppercase"> Управление Данными</span>
 
-														</div>
-													</div>
-													<%= form_for(:city, :url => {:action => 'create'}, :html => {:multipart => true}) do |f| %>
-															<div class="form-body">
-														<div class="form-group form-md-line-input has-success">
-																<%= f.label :city_reg_no, "Регистрационный Номер в Базе Данных", class: 'text-success' %>
-																<%= f.text_field :city_reg_no, class: 'form-control', placeholder: 'Введите регистрационный номер', value: @last, readonly: "" %>
-														</div>
-														<div class="form-group form-md-line-input has-success">
-																<%= f.label :city_name, "Наименование Города", class: 'text-success' %>
-																<%= f.text_field :city_name, class: 'form-control', placeholder: 'Введите наименование города', :maxlength=>35 %>
-															</div>
-															<%= f.submit "Сохранить Запись", class: "btn btn-primary btn-right" %>
-														</form>
+							<div class="note note-danger">
 
-														<% end %>
-													</div>
-												</div>
+									<p>
+										<%= form_for(:bank, :url => { :action => 'destroy', :id => @bank.id }) do |f| %>
+
+								    <div class="callout callout-info"><h4>Вы уверены?<i class="icon fa fa-warning"></i></h4>
+								      <p>Вы действительно желаете навсегда  удалить из базы данных город <b>"<%= @bank.bank_name %>"</b>?</p>
+								    </div>
+											<br/>
+								      <%= f.submit "Удалить Город", class: "btn purple" %>
+								      <% end %>
+									</p>
+								</div>
+
+
+
+
+
+						  </section>
+
 
 					</div>
 				</div>

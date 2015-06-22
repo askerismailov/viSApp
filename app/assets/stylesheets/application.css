@@ -25,7 +25,7 @@
  *= require components-md
  *= require plugins-md
  *= require datatables/plugins/bootstrap/dataTables.bootstrap.css
-
+ *= require select2/select2
 
  */
 

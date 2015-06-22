@@ -25,6 +25,7 @@
 //= require bootstrap-switch/js/bootstrap-switch.min
 //= require datatables/media/js/jquery.dataTables.min
 //= require datatables/plugins/bootstrap/dataTables.bootstrap
+//= require select2/select2.min
 //= require metronic
 //= require layout
 //= require demo

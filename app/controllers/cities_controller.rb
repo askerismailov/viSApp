@@ -1,7 +1,7 @@
 class CitiesController < ApplicationController
 
   def index
-    @cities = City.paginate(:page => params[:page], :per_page => 8).order("city_reg_no ASC")
+    @cities = City.paginate(:page => params[:page], :per_page => 8).order("city_reg_no ASC").where("city_reg_no > 10000")
 
   end
 
@@ -19,6 +19,7 @@ class CitiesController < ApplicationController
   if @city.save
     redirect_to(:action => 'index')
   else
+    @last = City.last.city_reg_no + 1
     render('new')
   end
   end
