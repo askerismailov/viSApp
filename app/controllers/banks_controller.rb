@@ -1,4 +1,6 @@
 class BanksController < ApplicationController
+
+  
   def index
     @banks = Bank.paginate(:page => params[:page], :per_page => 8).order("bank_reg_no ASC").where("bank_reg_no > 30000")
     @indices = PostIndex.all

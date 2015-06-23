@@ -1,0 +1,170 @@
+<!-- BEGIN CONTENT -->
+		<div class="page-content-wrapper">
+			<div class="page-content">
+				<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+				<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+								<h4 class="modal-title">Modal title</h4>
+							</div>
+							<div class="modal-body">
+								 Widget settings form goes here
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn blue">Save changes</button>
+								<button type="button" class="btn default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
+				<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+				<!-- BEGIN PAGE HEADER-->
+				<h3 class="page-title">
+					Список городов <small>Все города в базе данных</small>
+				</h3>
+				<div class="page-bar">
+					<ul class="page-breadcrumb">
+						<li>
+							<%= link_to root_path do  %>
+	        		<%= content_tag :i, "", :class => "fa fa-home" %>Панель Управления
+							<%= content_tag :i, "", :class => "fa fa-angle-right" %>
+	      			<% end %>
+						</li>
+						<li>
+							<%= link_to '/cities' do  %>
+	        		<%= content_tag :i, "" %>Города
+							<%= content_tag :i, "", :class => "fa fa-angle-right" %>
+	      			<% end %>
+						</li>
+
+						<li>
+							<a href="#" class="active">Все Города</a>
+						</li>
+					</ul>
+				</div>
+				<!-- END PAGE HEADER-->
+				<!-- BEGIN PAGE CONTENT-->
+				<!-- BEGIN PAGE CONTENT-->
+				<div class="row">
+					<div class="col-md-12">
+
+						<!-- BEGIN SAMPLE TABLE PORTLET-->
+						<div class="portlet light">
+							<div class="portlet-title">
+								<div class="caption">
+									<i class="fa fa-user"></i> <%= @contragent.cont_name %>
+								</div>
+								<div class="tools">
+									<a href="javascript:;" class="collapse" data-original-title="" title="Расскрыть/Свернуть">
+									</a>
+									<a href="#portlet-config" data-toggle="modal" class="config" data-original-title="" title="Настройки">
+									</a>
+									<a href="javascript:;" class="reload" data-original-title="" title="Обновить">
+									</a>
+									<a href="javascript:;" class="remove" data-original-title="" title="Закрыть">
+									</a>
+								</div>
+							</div>
+
+							<div class="portlet-body" style="display: block;">
+
+<%= @contragent.id %>
+
+								<td>
+									<%= link_to("asd", {:controller => 'bank_accounts', :action => 'new', :id =>  @contragent.id } ) %>
+
+								</td>
+
+
+
+								<div class="table-scrollable">
+									<table class="table table-striped table-bordered table-advance table-hover">
+									<thead>
+									<tr>
+										<th style="width: 250px; font-size: 15px;">
+											<i class="fa fa-database"></i> Регистрационный Номер
+										</th>
+										<th style="font-size: 15px;">
+											<i class="fa fa-building"></i> Bank Account
+										</th>
+
+										<th style="font-size: 15px;">
+											<i class="fa fa-building"></i> Bank
+										</th>
+
+										<th style="font-size: 15px;">
+											<i class="fa fa-building"></i> Bank MFO
+										</th>
+
+										<th style="width: 55px;">
+										</th>
+										<th style="width: 55px;">
+										</th>
+									</tr>
+									</thead>
+									<% @bank_accounts.each do |ba| %>
+									<tbody>
+									<tr>
+										<td class="highlight" style="vertical-align: middle; font-size: 14px; ">
+											<div class="success">
+											</div>
+											<a href="javascript:;">
+											<%= ba.acc_reg_no %> </a>
+										</td>
+										<td style="vertical-align: middle; font-size: 14px; ">
+											<%= ba.bank_account %>
+										</td>
+										<td style="vertical-align: middle; font-size: 14px; ">
+											<%= ba.bank.bank_name if ba.bank %>
+										</td>
+										<td style="vertical-align: middle; font-size: 14px; ">
+											<%= ba.bank.mfo_no if ba.bank %>
+										</td>
+
+
+<td>
+										<%= link_to("", {:controller => 'bank_accounts', :action => 'edit', :id => ba.id },
+																		 :class => "btn btn-icon-only blue fa fa-edit") %>
+
+</td>
+
+
+<td>
+										<%= link_to("", {:controller => 'bank_accounts', :action => 'delete', :id => ba.id },
+																		 :class => "btn btn-icon-only red fa fa-remove") %>
+
+</td>
+
+									</tr>
+									</tbody>
+									<% end %>
+									</table>
+								</div>
+
+
+
+
+
+									<!-- END SAMPLE TABLE PORTLET-->
+								</div>
+
+
+
+
+							</div>
+
+
+
+				</div>
+			</div>
+				<!-- END PAGE CONTENT-->
+			</div>
+		</div>
+		<!-- END CONTENT -->
+	</div>

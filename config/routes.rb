@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
 
   root 'dashboard#index'
+
+  get 'admin', :to => "access#index"
+
   match ':controller(/:action/(:id))', :via => [:get, :post]
 
-  
+  # resources :cities
+
   #
   # post ':controller(/:action(/:id(.:format)))'
   # get ':controller(/:action(/:id(.:format)))'

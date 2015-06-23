@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622064333) do
+ActiveRecord::Schema.define(version: 20150622164536) do
+
+  create_table "admin_users", force: :cascade do |t|
+    t.string   "username"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "bank_accounts", force: :cascade do |t|
+    t.integer  "bank_id"
+    t.integer  "contragent_id"
+    t.integer  "acc_reg_no"
+    t.string   "bank_account"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "bank_accounts", ["bank_id", "contragent_id"], name: "index_bank_accounts_on_bank_id_and_contragent_id"
 
   create_table "banks", force: :cascade do |t|
     t.integer  "city_id"
@@ -28,14 +47,21 @@ ActiveRecord::Schema.define(version: 20150622064333) do
 
   create_table "cities", force: :cascade do |t|
     t.string   "city_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",            null: false
+    t.datetime "updated_at",            null: false
     t.integer  "city_reg_no", limit: 8
   end
 
+  create_table "cont_types", force: :cascade do |t|
+    t.string "cont_type"
+  end
+
   create_table "contragents", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "cont_reg_no"
+    t.string   "cont_name"
+    t.integer  "cont_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "post_indices", force: :cascade do |t|

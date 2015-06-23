@@ -1,5 +1,7 @@
 class CitiesController < ApplicationController
 
+  # before_action :confirm_logged_in
+
   def index
     @cities = City.paginate(:page => params[:page], :per_page => 8).order("city_reg_no ASC").where("city_reg_no > 10000")
 

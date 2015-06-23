@@ -1,5 +1,7 @@
 class PostIndicesController < ApplicationController
 
+
+
   def index
     @indices = PostIndex.paginate(:page => params[:page], :per_page => 8).order("index_reg_no ASC").where("index_reg_no > 20000")
   end
