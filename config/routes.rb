@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root 'dashboard#index'
 
 
-  match ':controller(/:action/(:id))', :via => [:get, :post]
+  # match ':controller(/:action/(:id))', :via => [:get, :post]
 
+  get "cities/new" => "cities#new"
+  get "cities/create" => "cities#create"
 
   # post ':controller(/:action(/:id(.:format)))'
   # get ':controller(/:action(/:id(.:format)))'
