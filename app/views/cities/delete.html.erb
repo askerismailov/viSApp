@@ -61,7 +61,7 @@
 									<p>
 
 
-										<%= form_for(:subject, :url => { :action => 'destroy', :id => @city.id }) do |f| %>
+										<%= form_for(:city, :url => { :action => 'destroy', :id => @city.id }) do |f| %>
 
 								    <div class="callout callout-info"><h4>Вы уверены?<i class="icon fa fa-warning"></i></h4>
 								      <p>Вы действительно желаете навсегда  удалить из базы данных город <b>"<%= @city.city_name %>"</b>?</p>

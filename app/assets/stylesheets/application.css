@@ -26,6 +26,8 @@
  *= require plugins-md
  *= require datatables/plugins/bootstrap/dataTables.bootstrap.css
  *= require select2/select2
+ *= require bootstrap-select/bootstrap-select.min
+ *= require jquery-multi-select/css/multi-select
 
  */
 

@@ -1,0 +1,90 @@
+<!-- BEGIN CONTENT -->
+		<div class="page-content-wrapper">
+			<div class="page-content">
+				<!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+				<div class="modal fade" id="portlet-config" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+								<h4 class="modal-title">Modal title</h4>
+							</div>
+							<div class="modal-body">
+								 Widget settings form goes here
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn blue">Save changes</button>
+								<button type="button" class="btn default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+						<!-- /.modal-content -->
+					</div>
+					<!-- /.modal-dialog -->
+				</div>
+				<!-- /.modal -->
+				<!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+
+				<!-- BEGIN PAGE HEADER-->
+				<h3 class="page-title">
+					Удалить Город
+				</h3>
+				<div class="page-bar">
+					<ul class="page-breadcrumb">
+						<li>
+
+							<%= link_to root_path do  %>
+	        		<%= content_tag :i, "", :class => "fa fa-home" %>Панель Управления
+							<%= content_tag :i, "", :class => "fa fa-angle-right" %>
+	      			<% end %>
+						</li>
+						<li>
+							<%= link_to '/cities' do  %>
+							<%= content_tag :i, "" %>Города
+							<%= content_tag :i, "", :class => "fa fa-angle-right" %>
+							<% end %>
+						</li>
+						<li>
+							<a href="#">Удалить Город</a>
+						</li>
+					</ul>
+				</div>
+				<!-- END PAGE HEADER-->
+				<!-- BEGIN PAGE CONTENT-->
+				<div class="row">
+					<div class="col-md-12">
+
+						<section class="content">
+
+
+							<div class="note note-danger">
+
+									<p>
+
+
+										<%= form_for(:contragent, :url => { :action => 'destroy', :id => @contragent.id }) do |f| %>
+
+								    <div class="callout callout-info"><h4>Вы уверены?<i class="icon fa fa-warning"></i></h4>
+								      <p>Вы действительно желаете навсегда  удалить из базы данных город <b>"<%= @contragent.cont_name %>"</b>?</p>
+								    </div>
+											<br/>
+								      <%= f.submit "Удалить Город", class: "btn purple" %>
+								      <% end %>
+
+
+									</p>
+								</div>
+
+
+
+
+
+						  </section>
+
+
+					</div>
+				</div>
+				<!-- END PAGE CONTENT-->
+			</div>
+		</div>
+		<!-- END CONTENT -->
+  </div>

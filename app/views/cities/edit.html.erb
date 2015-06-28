@@ -63,12 +63,6 @@
 													</div>
 													<%= form_for(:city, :url => {:action => 'update', :id => @city.id }, role: "form") do |f| %>
 															<div class="form-body">
-														<div class="form-group form-md-line-input has-success">
-																<%= f.text_field :city_reg_no, class: 'form-control', id: 'form-control_1',  placeholder: 'Введите регистрационный номер', readonly: "" %>
-																<%= f.label :city_reg_no, "Регистрационный Номер в Базе Данных ", for: 'form-control_1' %>
-																<div class="form-control-focus">
-																</div>
-															</div>
 															<div class="form-group form-md-line-input has-success">
 																<%= f.text_field :city_name, class: 'form-control', id: 'form-control_1', placeholder: 'Введите наименование города', :maxlength=>35 %>
 																<%= f.label :city_name, "Наименование Города", for: 'form-control_1' %>

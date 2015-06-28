@@ -50,14 +50,14 @@
 
             <ul class="sub-menu">
               <li>
-                <a href="#">
-                <i class="fa fa-users"></i>
-                Все Контрагенты</a>
+                <%= link_to '/contragents' do %>
+                <%= content_tag :i, "", :class => "fa fa-users" %>
+                Все Контрагенты  <% end %>
               </li>
               <li>
-                <a href="#">
-                <i class="fa fa-user"></i>
-                Новый Контрагент</a>
+                <%= link_to '/contragents/new' do %>
+                <%= content_tag :i, "", :class => "fa fa-user" %>
+                Novyi Kontragent  <% end %>
               </li>
             </ul>
 					</li>
@@ -127,6 +127,8 @@ Layout.init(); // init current layout
 Demo.init(); // init demo features
 // init context menu demo
 FormSamples.init();
+ComponentsDropdowns.init();
+
 
 });
 </script>

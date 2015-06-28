@@ -3,7 +3,7 @@ class PostIndicesController < ApplicationController
 
 
   def index
-    @indices = PostIndex.paginate(:page => params[:page], :per_page => 8).order("index_reg_no ASC").where("index_reg_no > 20000")
+    @indices = PostIndex.paginate(:page => params[:page], :per_page => 8).order("id ASC")
   end
 
   def show
@@ -12,14 +12,13 @@ class PostIndicesController < ApplicationController
 
   def new
     @post_index = PostIndex.new
-    @cities = City.all.offset(1)
-    @indices = PostIndex.all
-    @last = PostIndex.last.index_reg_no + 1
+    @cities = City.all
   end
 
   def create
     @post_index = PostIndex.new(index_params)
   if @post_index.save
+    flash[:notice] = "Post index created successfully!"
     redirect_to(:action => 'index')
   else
     render('new')
@@ -28,15 +27,16 @@ class PostIndicesController < ApplicationController
 
   def edit
     @post_index = PostIndex.find(params[:id])
-    @cities = City.all.offset(1)
+    @cities = City.all
   end
 
   def update
     @post_index = PostIndex.find(params[:id])
     if @post_index.update_attributes(index_params)
+      flash[:notice] = "Post index updated successfully!"
       redirect_to(:action => 'index')
     else
-      @cities = City.all.offset(1)
+      @cities = City.all
       render('edit')
     end
   end
@@ -48,6 +48,8 @@ class PostIndicesController < ApplicationController
     def destroy
       @post_index = PostIndex.find(params[:id])
       @post_index.destroy
+      flash[:notice] = "Post index deleted successfully!"
+
       redirect_to(:action => 'index')
     end
 
@@ -55,6 +57,6 @@ class PostIndicesController < ApplicationController
   private
 
   def index_params
-     params.require(:post_index).permit(:city_id, :post_index, :index_reg_no)
+     params.require(:post_index).permit(:city_id, :post_index)
   end
 end

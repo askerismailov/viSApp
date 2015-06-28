@@ -3,8 +3,7 @@ class CitiesController < ApplicationController
   # before_action :confirm_logged_in
 
   def index
-    @cities = City.paginate(:page => params[:page], :per_page => 8).order("city_reg_no ASC").where("city_reg_no > 10000")
-
+    @cities = City.paginate(:page => params[:page], :per_page => 8).order("id ASC")
   end
 
   def show
@@ -13,15 +12,14 @@ class CitiesController < ApplicationController
 
   def new
     @city = City.new
-    @last = City.last.city_reg_no + 1
   end
 
   def create
     @city = City.new(city_params)
   if @city.save
+    flash[:notice] = "City created successfully!"
     redirect_to(:action => 'index')
   else
-    @last = City.last.city_reg_no + 1
     render('new')
   end
   end
@@ -47,6 +45,7 @@ class CitiesController < ApplicationController
     def destroy
       @city = City.find(params[:id])
       @city.destroy
+      flash[:notice] = "City deleted successfully!"
       redirect_to(:action => 'index')
     end
 
@@ -54,7 +53,7 @@ class CitiesController < ApplicationController
   private
 
   def city_params
-     params.require(:city).permit(:city_name, :city_reg_no)
+     params.require(:city).permit(:city_name)
   end
 
 end

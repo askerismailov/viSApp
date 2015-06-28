@@ -1,0 +1,2 @@
+module ContTypesHelper
+end

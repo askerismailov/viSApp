@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150622164536) do
+ActiveRecord::Schema.define(version: 20150626110647) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "username"
@@ -59,9 +59,9 @@ ActiveRecord::Schema.define(version: 20150622164536) do
   create_table "contragents", force: :cascade do |t|
     t.integer  "cont_reg_no"
     t.string   "cont_name"
-    t.integer  "cont_type_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string   "cont_type_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "post_indices", force: :cascade do |t|

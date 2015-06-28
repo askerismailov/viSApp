@@ -64,12 +64,7 @@
 													<%= form_for(:contragent, :url => {:action => 'create'}, :html => {:multipart => true}) do |f| %>
 															<div class="form-body">
 
-														<div class="form-group form-md-line-input has-success">
-																<%= f.text_field :cont_reg_no, class: 'form-control', id: 'form-control_1',  placeholder: 'Введите регистрационный номер', value: @last, readonly: "" %>
-																<%= f.label :cont_reg_no, "Регистрационный Номер в Базе Данных ", for: 'form-control_1' %>
-																<div class="form-control-focus">
-																</div>
-															</div>
+		
 															<div class="form-group form-md-line-input has-success">
 																<%= f.text_field :cont_name, class: 'form-control', id: 'form-control_1', placeholder: 'Введите наименование города', :maxlength=>35 %>
 																<%= f.label :cont_name, "Наименование Banka", for: 'form-control_1' %>

@@ -29,3 +29,7 @@
 //= require metronic
 //= require layout
 //= require demo
+//= require select2/select2.min
+//= require bootstrap-select/bootstrap-select.min
+//= require jquery-multi-select/js/jquery.multi-select
+//= require components-dropdowns

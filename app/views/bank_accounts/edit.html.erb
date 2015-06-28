@@ -65,20 +65,8 @@
                           <%= form_for(:bank_account, :url => {:action => 'update', :id => @bank_account.id }, :html => {:multipart => true}) do |f| %>
 															<div class="form-body">
 
-                                <div class="form-group form-md-line-input has-success">
-    																<%= f.text_field :acc_reg_no, class: 'form-control', id: 'form-control_1',  placeholder: 'Введите регистрационный номер', value: @last, readonly: "" %>
-    																<%= f.label :acc_reg_no, "Регистрационный Номер в Базе Данных ", for: 'form-control_1' %>
-    																<div class="form-control-focus">
-    																</div>
-    															</div>
+																<%= f.text_field :contragent_id, class: 'form-control', id: 'form-control_1', :value => @bank_account.contragent.id, :type => 'hidden'  %>
 
-															<div class="form-group form-md-line-input has-success">
-																<%= f.text_field :contragent_id, class: 'form-control', id: 'form-control_1', :value => @bank_account.contragent.cont_name  %>
-																<%= f.label :contragent_id, "COR", for: 'form-control_1' %>
-
-																<div class="form-control-focus">
-																</div>
-															</div>
 
 
                               <div class="form-group form-md-line-input has-success">

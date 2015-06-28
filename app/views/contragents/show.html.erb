@@ -74,22 +74,19 @@
 
 							<div class="portlet-body" style="display: block;">
 
-<%= @contragent.id %>
 
-								<td>
-									<%= link_to("asd", {:controller => 'bank_accounts', :action => 'new', :id =>  @contragent.id } ) %>
+		<td>
+				<%= link_to("Attach bank account", {:controller => 'bank_accounts', :action => 'new', :id => @contragent.id },
+																				:class => "btn btn-success fa fa-add") %>
+		</td><br/><br/>
 
-								</td>
 
-
+<% if @contragent.bank_accounts.size > 0 %>
 
 								<div class="table-scrollable">
 									<table class="table table-striped table-bordered table-advance table-hover">
 									<thead>
 									<tr>
-										<th style="width: 250px; font-size: 15px;">
-											<i class="fa fa-database"></i> Регистрационный Номер
-										</th>
 										<th style="font-size: 15px;">
 											<i class="fa fa-building"></i> Bank Account
 										</th>
@@ -111,12 +108,7 @@
 									<% @bank_accounts.each do |ba| %>
 									<tbody>
 									<tr>
-										<td class="highlight" style="vertical-align: middle; font-size: 14px; ">
-											<div class="success">
-											</div>
-											<a href="javascript:;">
-											<%= ba.acc_reg_no %> </a>
-										</td>
+
 										<td style="vertical-align: middle; font-size: 14px; ">
 											<%= ba.bank_account %>
 										</td>
@@ -146,6 +138,12 @@
 									<% end %>
 									</table>
 								</div>
+								<% else %>
+
+
+									<h4>There are no accounts associated with <%= @contragent.cont_name %>.</h4>
+
+								<% end %>
 
 
 

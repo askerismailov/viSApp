@@ -1,8 +1,8 @@
 class BanksController < ApplicationController
 
-  
+
   def index
-    @banks = Bank.paginate(:page => params[:page], :per_page => 8).order("bank_reg_no ASC").where("bank_reg_no > 30000")
+    @banks = Bank.paginate(:page => params[:page], :per_page => 8).order("id ASC")
     @indices = PostIndex.all
     @cities = City.all
   end
@@ -13,13 +13,13 @@ class BanksController < ApplicationController
 
   def new
     @bank = Bank.new
-    @indices = PostIndex.all.offset(1)
-    @last = Bank.last.bank_reg_no + 1
+    @indices = PostIndex.all
   end
 
   def create
     @bank = Bank.new(bank_params)
   if @bank.save
+    flash[:notice] = "Bank created successfully!"
     redirect_to(:action => 'index')
   else
     render('new')
@@ -28,15 +28,16 @@ class BanksController < ApplicationController
 
   def edit
     @bank = Bank.find(params[:id])
-    @indices = PostIndex.all.offset(1)
+    @indices = PostIndex.all
   end
 
   def update
     @bank = Bank.find(params[:id])
     if @bank.update_attributes(bank_params)
+      flash[:notice] = "Bank updated successfully!"
       redirect_to(:action => 'index')
     else
-      @indices = PostIndex.all.offset(1)
+      @indices = PostIndex.all
       render('edit')
     end
   end
@@ -48,13 +49,14 @@ class BanksController < ApplicationController
     def destroy
       @bank = Bank.find(params[:id])
       @bank.destroy
+      flash[:notice] = "Bank deleted successfully!"
       redirect_to(:action => 'index')
     end
 
   private
 
   def bank_params
-     params.require(:bank).permit(:bank_name, :post_index_id, :mfo_no, :cor_account, :bank_reg_no)
+     params.require(:bank).permit(:bank_name, :post_index_id, :mfo_no, :cor_account)
   end
 
 
